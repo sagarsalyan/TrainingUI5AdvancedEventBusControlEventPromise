@@ -1,6 +1,7 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function (Controller) {
+	"sap/ui/core/mvc/Controller",
+	"sap/m/MessageBox"
+], function (Controller,MessageBox) {
 	"use strict";
 
 	return Controller.extend("app.UI5AdvancedTraining.controller.Detail", {
@@ -29,6 +30,47 @@ sap.ui.define([
 			//firing event bus
 			oEventBus.publish("NotifyChannel", "showMessageBox", oMessage);
 
+		},
+		onPromise:function(oEvent){
+			var oPromise = new Promise(function(resolve,reject){
+				var x = 0;
+				setTimeout(function(){
+					if(x === 0){
+						reject("Some error")
+					}else{
+						resolve("Data saved")
+					}
+				}, 1000)
+			});
+			oPromise.then(
+				function(oSuccessData){
+					MessageBox.success(oSuccessData);
+				},
+				function(oErrorData){
+					MessageBox.error(oErrorData);
+				}
+			);
+
+		},
+		onPromiseChain:function(oEvent){
+				var oPromise = new Promise(function(resolve,reject){
+					var x=2
+					setTimeout(function(){
+						resolve(x*2);
+					},1000)
+				});
+				
+				oPromise.then(function(oData){
+					alert(oData);
+					return oData;
+				}).then(function(oData){
+					oData = oData * 3;
+					alert(oData);
+					return oData;
+				}).then(function(oData){
+					oData = oData * 4;
+					alert(oData);
+				})
 		},
 
 		/**

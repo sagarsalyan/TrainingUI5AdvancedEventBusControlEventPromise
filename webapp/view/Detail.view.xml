@@ -24,8 +24,8 @@
 				</content>
 				<footer>
 					<OverflowToolbar>
-						<Button text="Promise"/>
-						<Button text="Promise Chaining"/>
+						<Button text="Promise" press="onPromise"/>
+						<Button text="Promise Chaining" press="onPromiseChain"/>
 						<ToolbarSpacer/>
 						<Button text="Submit" press="onSubmit"/>
 						
