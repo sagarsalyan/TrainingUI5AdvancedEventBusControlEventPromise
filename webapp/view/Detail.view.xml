@@ -1,0 +1,37 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="app.UI5AdvancedTraining.controller.Detail"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<App>
+		<pages>
+			<Page title="Detail" showFooter="true">
+				<content>
+					<VBox class="sapUiSmallMargin">
+						<f:SimpleForm id="SimpleFormChange354" editable="true" layout="ResponsiveGridLayout" title="Address" labelSpanXL="3" labelSpanL="3"
+							labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
+							columnsL="1" columnsM="1" singleContainerFullSize="false">
+							<f:content>
+								<Label text="Name"/>
+								<Input id="name" value="{Name}"/>
+								<Label text="Department"/>
+								<Input id="dept" value="{Department}"/>
+								<Label text="Manager"/>
+								<Input id="manager" value="{Manager}"/>
+								<Label text="Address"/>
+								<TextArea value="{Address}"></TextArea>
+								
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+				</content>
+				<footer>
+					<OverflowToolbar>
+						<Button text="Promise"/>
+						<Button text="Promise Chaining"/>
+						<ToolbarSpacer/>
+						<Button text="Submit"/>
+						
+					</OverflowToolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
