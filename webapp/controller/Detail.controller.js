@@ -50,7 +50,6 @@ sap.ui.define([
 			// way 1
 			inputName.attachBrowserEvent("click", function (e) {
 				//code goes here
-				debugger;
 				console.log(this.getValue());
 			});
 
@@ -58,7 +57,6 @@ sap.ui.define([
 			// inputName.addEventDelegate({
 			// 	onclick: function(e) {
 			// 		//code goes here
-			// 		debugger;
 			// 		console.log(e.srcControl.getValue());
 			// 	}.bind(this),
 			// 	onkeydown: function(e) {
