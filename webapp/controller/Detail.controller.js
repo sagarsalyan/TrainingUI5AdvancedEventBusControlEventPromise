@@ -13,6 +13,23 @@ sap.ui.define([
 		onInit: function () {
 
 		},
+		onSubmit:function(){
+			var empModel = this.getView().getModel("empModel");
+			var oEventBus = sap.ui.getCore().getEventBus();
+			var oMessage = {
+				empData:{},
+				message:"Data saved"
+			};
+			var empData = empModel.getProperty("/tempData");
+			empData.id = empModel.getProperty("/results").length + 1;
+			empModel.getProperty("/results").push(empData);
+			empModel.refresh();
+			oMessage.empData = empData;
+			
+			//firing event bus
+			oEventBus.publish("NotifyChannel","showMessageBox",oMessage);
+			
+		}
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered

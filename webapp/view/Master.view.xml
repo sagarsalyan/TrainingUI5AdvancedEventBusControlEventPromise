@@ -5,12 +5,18 @@
 			<Page title="Master">
 				<content>
 					<ScrollContainer vertical="true">
-							<List id="masterList" items="{studentsModel>/results}" mode="SingleSelectMaster">
-								<StandardListItem>
-									
-								</StandardListItem>
-							</List>
-					</ScrollContainer> 
+						<List id="masterList" items="{empModel>/results}" mode="SingleSelectMaster">
+							<ObjectListItem title="{empModel>name}" type="Active" number="{empModel>empId}">
+								<firstStatus>
+									<ObjectStatus title="Department" text="{empModel>department}" />
+								</firstStatus>
+								<attributes>
+									<!--<ObjectAttribute title="Unit In Stock" text="{empModel>UnitsInStock}"/>-->
+									<!--<ObjectAttribute title="Qty/Unit" text="{empModel>QuantityPerUnit}"/>-->
+								</attributes>
+							</ObjectListItem>
+						</List>
+					</ScrollContainer>
 				</content>
 			</Page>
 		</pages>

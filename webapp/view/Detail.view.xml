@@ -10,13 +10,13 @@
 							columnsL="1" columnsM="1" singleContainerFullSize="false">
 							<f:content>
 								<Label text="Name"/>
-								<Input id="name" value="{Name}"/>
+								<Input id="name" value="{empModel>/tempData/name}"/>
 								<Label text="Department"/>
-								<Input id="dept" value="{Department}"/>
+								<Input id="dept" value="{empModel>/tempData/department}"/>
 								<Label text="Manager"/>
-								<Input id="manager" value="{Manager}"/>
+								<Input id="manager" value="{empModel>/tempData/manager}"/>
 								<Label text="Address"/>
-								<TextArea value="{Address}"></TextArea>
+								<TextArea value="{empModel>/tempData/address}"></TextArea>
 								
 							</f:content>
 						</f:SimpleForm>
@@ -27,7 +27,7 @@
 						<Button text="Promise"/>
 						<Button text="Promise Chaining"/>
 						<ToolbarSpacer/>
-						<Button text="Submit"/>
+						<Button text="Submit" press="onSubmit"/>
 						
 					</OverflowToolbar>
 				</footer>

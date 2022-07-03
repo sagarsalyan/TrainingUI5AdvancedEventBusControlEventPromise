@@ -1,6 +1,8 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function (Controller) {
+	"sap/ui/core/mvc/Controller",
+	"sap/m/MessageBox",
+	"sap/m/MessageToast",
+], function (Controller, MessageBox, MessageToast) {
 	"use strict";
 
 	return Controller.extend("app.UI5AdvancedTraining.controller.Master", {
@@ -11,8 +13,17 @@ sap.ui.define([
 		 * @memberOf app.UI5AdvancedTraining.view.Master
 		 */
 		onInit: function () {
-
+			var oEventBus = sap.ui.getCore().getEventBus();
+			// registering event bus
+			oEventBus.subscribe("NotifyChannel", "showMessageBox", this.showMessageBox.bind(this), this);
+			oEventBus.subscribe("NotifyChannel", "showMessageToast", this.showMessageToast.bind(this), this);
 		},
+		showMessageBox: function (sChannel, sEvent, oData) {
+			MessageToast.show(oData.message + ":" + oData.empData.name);
+		},
+		showMessageToast: function (sChannel, sEvent, oData) {
+			MessageToast.show(oData.message + ":" + oData.empData.name);
+		}
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
