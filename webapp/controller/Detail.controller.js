@@ -48,19 +48,21 @@ sap.ui.define([
 		onAfterRendering: function () {
 			var inputName = this.getView().byId("name");
 			// way 1
-			inputName.attachBrowserEvent("click", function () {
-			//code goes here
+			inputName.attachBrowserEvent("click", function (e) {
+				//code goes here
 				debugger;
-			}.bind(this));
+				console.log(this.getValue());
+			});
 
 			// way 2
 			// inputName.addEventDelegate({
 			// 	onclick: function(e) {
 			// 		//code goes here
 			// 		debugger;
+			// 		console.log(e.srcControl.getValue());
 			// 	}.bind(this),
 			// 	onkeydown: function(e) {
-			// 		e.preventDefault();
+			// 		// e.preventDefault();
 			// 	}.bind(this),
 			// });
 		},
