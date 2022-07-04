@@ -15,11 +15,13 @@ sap.ui.define([
 		onInit: function () {
 			var oEventBus = sap.ui.getCore().getEventBus();
 			// registering event bus
-			oEventBus.subscribe("NotifyChannel", "showMessageBox", this.showMessageBox.bind(this), this);
-			oEventBus.subscribe("NotifyChannel", "showMessageToast", this.showMessageToast.bind(this), this);
+			oEventBus.subscribe("NotifyChannel", "showMessageBox", this.showMessageBox, this);
+			oEventBus.subscribe("NotifyChannel", "showMessageToast", this.showMessageToast, this);
 		},
 		showMessageBox: function (sChannel, sEvent, oData) {
-			MessageToast.show(oData.message + ":" + oData.empData.name);
+			MessageBox.show(oData.message + ":" + oData.empData.name,{
+				title:"Success"
+			});
 		},
 		showMessageToast: function (sChannel, sEvent, oData) {
 			MessageToast.show(oData.message + ":" + oData.empData.name);

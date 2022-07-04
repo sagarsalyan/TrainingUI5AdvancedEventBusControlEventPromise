@@ -1,7 +1,8 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"sap/m/MessageBox"
-], function (Controller,MessageBox) {
+	"sap/m/MessageBox",
+	"sap/base/util/deepClone"
+], function (Controller,MessageBox,deepClone) {
 	"use strict";
 
 	return Controller.extend("app.UI5AdvancedTraining.controller.Detail", {
@@ -21,8 +22,8 @@ sap.ui.define([
 				empData: {},
 				message: "Data saved"
 			};
-			var empData = empModel.getProperty("/tempData");
-			empData.id = empModel.getProperty("/results").length + 1;
+			var empData = deepClone(empModel.getProperty("/tempData"));
+			empData.empId = empModel.getProperty("/results").length + 1;
 			empModel.getProperty("/results").push(empData);
 			empModel.refresh();
 			oMessage.empData = empData;

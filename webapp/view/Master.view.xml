@@ -5,7 +5,7 @@
 			<Page title="Master">
 				<content>
 					<ScrollContainer vertical="true">
-						<List id="masterList" items="{empModel>/results}" mode="SingleSelectMaster">
+						<List id="masterList" items="{empModel>/results}" mode="SingleSelectMaster" headerText="Employees">
 							<ObjectListItem title="{empModel>name}" type="Active" number="{empModel>empId}">
 								<firstStatus>
 									<ObjectStatus title="Department" text="{empModel>department}" />
